@@ -6,6 +6,7 @@ on:
     branches:
       - master
       - open-release/*.master
+      - nedbat/test-maple
 
 jobs:
   run-tests:
