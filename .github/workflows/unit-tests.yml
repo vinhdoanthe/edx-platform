@@ -56,6 +56,7 @@ jobs:
         run: |
           sudo pip install -r requirements/pip.txt
           sudo pip install -r requirements/edx/testing.txt
+          sudo pip install -r requirements/edx/django.txt
           #sudo pip install "django~=${{ matrix.django-version }}.0"
 
       - name: show all package versions
