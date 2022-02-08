@@ -57,6 +57,7 @@ jobs:
           sudo pip install -r requirements/pip.txt
           sudo pip install -r requirements/edx/testing.txt
           sudo pip install "django~=${{ matrix.django-version }}.0"
+          sudo pip freeze
 
       - name: get unit tests for shard
         run: |
