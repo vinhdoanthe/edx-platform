@@ -76,6 +76,7 @@ from ..django_comment_client.base.views import (
     track_comment_created_event,
     track_thread_created_event,
     track_voted_event,
+    track_thread_viewed_event,
 )
 from ..django_comment_client.utils import (
     get_group_id_for_user,
@@ -1245,6 +1246,7 @@ def get_thread(request, thread_id, requested_fields=None):
             "user_id": str(request.user.id),
         }
     )
+    track_thread_viewed_event(request, context["course"], cc_thread)
     return _serialize_discussion_entities(request, context, [cc_thread], requested_fields, DiscussionEntity.thread)[0]
 
 
