@@ -361,6 +361,7 @@ def get_course_tab_list(user, course):
             if tab.type != 'courseware':
                 continue
             tab.name = _("Entrance Exam")
+            tab.title = _("Entrance Exam")
         # TODO: LEARNER-611 - once the course_info tab is removed, remove this code
         if not DISABLE_UNIFIED_COURSE_TAB_FLAG.is_enabled(course.id) and tab.type == 'course_info':
             continue
@@ -368,7 +369,7 @@ def get_course_tab_list(user, course):
                 not bool(user and has_access(user, 'staff', course, course.id)):
             continue
         # We had initially created a CourseTab.load() for dates that ended up
-        # persisting the dates tab tomodulestore on Course Run creation, but
+        # persisting the dates tab to modulestore on Course Run creation, but
         # ignoring any static dates tab here we can fix forward without
         # allowing the bug to continue to surface
         if tab.type == 'dates':
