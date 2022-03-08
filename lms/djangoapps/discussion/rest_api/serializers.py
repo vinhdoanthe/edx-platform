@@ -358,7 +358,7 @@ class ThreadSerializer(_ContentSerializer):
         Returns a cleaned and truncated version of the thread's body to display in a
         preview capacity.
         """
-        return Truncator(strip_tags(self.get_rendered_body(obj))).words(10, )
+        return Truncator(strip_tags(self.get_rendered_body(obj))).chars(35, ).replace('\n', ' ')
 
     def create(self, validated_data):
         thread = Thread(user_id=self.context["cc_requester"]["id"], **validated_data)
@@ -739,10 +739,10 @@ class CourseMetadataSerailizer(serializers.Serializer):
     )
     topics_url = serializers.URLField(help_text="The URL of the topic listing for the course.")
     allow_anonymous = serializers.BooleanField(
-        help_text="A boolean which indicating whether anonymous posts are allowed or not.",
+        help_text="A boolean indicating whether anonymous posts are allowed or not.",
     )
     allow_anonymous_to_peers = serializers.BooleanField(
-        help_text="A boolean which indicating whether posts anonymous to peers are allowed or not.",
+        help_text="A boolean indicating whether posts anonymous to peers are allowed or not.",
     )
     user_roles = serializers.ListField(
         child=serializers.CharField(),
@@ -750,4 +750,13 @@ class CourseMetadataSerailizer(serializers.Serializer):
     )
     user_is_privileged = serializers.BooleanField(
         help_text="A boolean indicating if the current user has a privileged role",
+    )
+    provider = serializers.CharField(
+        help_text="The discussion provider used by this course",
+    )
+    enable_in_context = serializers.BooleanField(
+        help_text="A boolean indicating whether in-context discussion is enabled for the course",
+    )
+    group_at_subsection = serializers.BooleanField(
+        help_text="A boolean indicating whether discussions should be grouped at subsection",
     )

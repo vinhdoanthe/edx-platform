@@ -512,10 +512,14 @@ class CourseViewTest(DiscussionAPIViewTestMixin, ModuleStoreTestCase):
                     "http://testserver/api/discussion/v1/threads/?course_id=course-v1%3Ax%2By%2Bz&following=True"
                 ),
                 "topics_url": "http://testserver/api/discussion/v1/course_topics/course-v1:x+y+z",
+                'enable_in_context': True,
+                'group_at_subsection': False,
+                'provider': 'legacy',
                 "allow_anonymous": True,
                 "allow_anonymous_to_peers": False,
                 'user_is_privileged': False,
                 'user_roles': ['Student'],
+                'learners_tab_enabled': False,
             }
         )
 
@@ -1230,7 +1234,7 @@ class ThreadViewSetCreateTest(DiscussionAPIViewTestMixin, ModuleStoreTestCase):
         assert response_data == self.expected_thread_data({
             "read": True,
             "raw_body": "# Test \n This is a very long body that will be truncated for the preview.",
-            "preview_body": "Test This is a very long body that will be…",
+            "preview_body": "Test This is a very long body that…",
             "rendered_body": "<h1>Test</h1>\n<p>This is a very long body that will be truncated for the preview.</p>",
         })
         assert parsed_body(httpretty.last_request()) == {
