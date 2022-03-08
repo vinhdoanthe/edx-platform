@@ -170,7 +170,7 @@ def track_thread_viewed_event(request, course, thread):
     """
     event_name = _EVENT_NAME_TEMPLATE.format(obj_type='thread', action_name='viewed')
     event_data = {}
-    event_data['commentable_id'] = thread.get('commentable_id')
+    event_data['commentable_id'] = thread.get('commentable_id', '')
     if hasattr(thread, 'username'):
         event_data['target_username'] = thread.get('username', '')
     add_truncated_title_to_event_data(event_data, thread.get('title', ''))
