@@ -67,6 +67,15 @@ from openedx.core.lib.derived import derived, derived_collection_entry
 from openedx.core.release import doc_version
 from lms.djangoapps.lms_xblock.mixin import LmsBlockMixin
 
+
+def get_env_setting(setting):
+    """ Get the environment setting or return exception """
+    try:
+        return os.environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)  # lint-amnesty, pylint: disable=raise-missing-from
+
 ################################### FEATURES ###################################
 # .. setting_name: PLATFORM_NAME
 # .. setting_default: Your Platform Name Here
@@ -5255,3 +5264,28 @@ URLS_2U_LOBS = {
     'bachelors_degree': 'https://www.edx.org/bachelors',
     'boot_camps': 'https://www.edx.org/boot-camps',
 }
+
+INSTALLED_APPS += (
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
+
+    'lms.djangoapps.landing_page',
+)
+
+MIDDLEWARE += (
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+)
+
+WAGTAIL_SITE_NAME = 'edX'
