@@ -4443,7 +4443,9 @@ SITE_ID = 1
 # .. setting_default: []
 # .. setting_description: A list of directories containing themes folders,
 #   each entry should be a full path to the directory containing the theme folder.
-COMPREHENSIVE_THEME_DIRS = []
+COMPREHENSIVE_THEME_DIRS = [
+        '/edx-platform/themes',
+        ]
 
 # .. setting_name: COMPREHENSIVE_THEME_LOCALE_PATHS
 # .. setting_default: []
@@ -4474,7 +4476,7 @@ DEFAULT_SITE_THEME = None
 #   defined by DEFAULT_SITE_THEME.
 # .. toggle_use_cases: open_edx
 # .. toggle_creation_date: 2016-06-30
-ENABLE_COMPREHENSIVE_THEMING = False
+ENABLE_COMPREHENSIVE_THEMING = True
 
 # .. setting_name: CUSTOM_RESOURCE_TEMPLATES_DIRECTORY
 # .. setting_default: None
@@ -5276,6 +5278,7 @@ INSTALLED_APPS += (
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.locales',
     'wagtail',
 
     'modelcluster',
@@ -5289,3 +5292,4 @@ MIDDLEWARE += (
 )
 
 WAGTAIL_SITE_NAME = 'edX'
+WAGTAILADMIN_BASE_URL = 'http://localhost:8000/landing_cms'
