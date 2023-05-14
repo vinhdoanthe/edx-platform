@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}      
+{% load humanize %}    
+{% load i18n %}
+<html lang="en">
+  <head>
+    {% include "landing_page/include/head.html" %}
+    {% block extra-head %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    {% include 'landing_page/include/footer.html' %}
+    {% include 'landing_page/include/script.html' %}
+    {% block extra-script %}{% endblock %}
+  </body>
+</html>
