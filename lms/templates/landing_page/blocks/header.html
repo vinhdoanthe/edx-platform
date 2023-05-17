@@ -1,4 +1,5 @@
 {% load static %}
+
 <header id="header" class="header white-menu navbar-dark">
   <div class="header-wrapper">
 
@@ -123,7 +124,7 @@
 
                       <!-- Image -->
                       <div class="fluid-width-video-wrapper mb-15"><img
-                           src="{% static 'landing_page/images/blog/featured-news.jpg" alt="featured-news" />
+                           src="{% static 'landing_page/images/blog/featured-news.jgp' %}" alt="featured-news" />
                       </div>
 
                       <!-- Text -->
@@ -153,7 +154,7 @@
                         <li class="clearfix d-flex align-items-center">
 
                           <!-- Image -->
-                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-1.jpg"
+                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-1.jgp' %}"
                                                  alt="blog-post-preview" />
 
                           <!-- Text -->
@@ -169,7 +170,7 @@
                         <li class="clearfix d-flex align-items-center">
 
                           <!-- Image -->
-                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-2.jpg"
+                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-2.jgp' %}"
                                                  alt="blog-post-preview" />
 
                           <!-- Text -->
@@ -186,7 +187,7 @@
                         <li class="clearfix d-flex align-items-center">
 
                           <!-- Image -->
-                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-3.jpg"
+                          <img class="img-fluid" src="{% static 'landing_page/images/blog/latest-post-3.jgp' %}"
                                                  alt="blog-post-preview" />
 
                           <!-- Text -->
@@ -212,6 +213,13 @@
 
 
             <!-- SIMPLE NAVIGATION LINK -->
+            <li>
+                {% if should_redirect_to_authn_mfe %}
+                  {% with register_params=login_query %}
+                  <a class="register-btn btn" href="{{settings.AUTHN_MICROFRONTEND_URL}}/register{{ register_params }}">{{_("Register")}}</a>
+                  {% endwith %}
+                {% endif %}
+            </li>
             <li class="nl-simple" aria-haspopup="true"><a href="contacts.html">Contacts</a></li>
 
 
@@ -238,7 +246,7 @@
             </li> <!-- END DROPDOWN MENU -->
 
 
-            <!-- HEADER BUTTON 
+            <!-- HEADER BUTTON
               <li class="nl-simple" aria-haspopup="true">
               <a href="#" class="btn btn-rose tra-black-hover last-link">Get Started</a>
               </li> -->
