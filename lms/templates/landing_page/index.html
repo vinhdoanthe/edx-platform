@@ -1,44 +1,19 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
-{% block body %}
-{% include 'landing_page/blocks/loader.html' %}
-<!-- PAGE CONTENT
-  ============================================= -->
-  <div id="page" class="page">
-    {% include 'landing_page/blocks/header.html' %}
-    <!-- HERO-1
-      ============================================= -->
-      {% include 'landing_page/blocks/head_banner.html' %}
-      {% include 'landing_page/blocks/head_about.html' %}
-      {% include 'landing_page/blocks/popular_courses.html' %}
-      {% include 'landing_page/blocks/about_2.html' %}
-      {% include 'landing_page/blocks/services.html' %}
-      {% include 'landing_page/blocks/categories.html' %}
-      {% include 'landing_page/blocks/best_courses_year.html' %}
-      {% include 'landing_page/blocks/testimonials.html' %}
-      {% include 'landing_page/blocks/best_courses.html' %}
-      {% include 'landing_page/blocks/cooperation.html' %}
-      {% include 'landing_page/blocks/goals.html' %}
-      {% include 'landing_page/blocks/video.html' %}
-      {% include 'landing_page/blocks/opportunities.html' %}
-      {% include 'landing_page/blocks/news.html' %}
-      {% include 'landing_page/blocks/footer_banner.html' %}
-  </div> <!-- END PAGE CONTENT -->
-  <!-- EXTERNAL SCRIPTS -->
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-  <!-- [if lt IE 9]>
-    <script src="'landing_page/js/html5shiv.js" type="text/javascript"></script>
-    <script src="'landing_page/js/respond.min.js" type="text/javascript"></script>
-    <![endif] -->
 
-    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
-    <!--
-      <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('send', 'pageview');
-      </script>
-      <script async src='https://www.google-analytics.com/analytics.js'></script>
-      -->
-      <!-- End Google Analytics -->
+<!-- SITE TITLE -->
+{% block title %}
+<title>Open-EdX</title>
+{% endblock %}
+
+{% block body %}
+  {% include 'landing_page/blocks/menu.html' %}
+      {% include 'landing_page/blocks/banner.html' %}
+      {% include 'landing_page/blocks/highlight_features.html' %}
+      {% include 'landing_page/blocks/services.html' with data_block=why block_id='why'%}
+      {% include 'landing_page/blocks/about.html' %}
+      {% include 'landing_page/blocks/proof_point.html' %}
+      {% include 'landing_page/blocks/services.html' with data_block=service block_id='services' %}
+      {% include 'landing_page/blocks/case_studies.html' %}
+      {% include 'landing_page/blocks/testimonial.html' %}
 {% endblock %}

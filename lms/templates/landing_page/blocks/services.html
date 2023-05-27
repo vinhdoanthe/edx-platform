@@ -1,71 +1,49 @@
 {% load static %}
-<!-- SERVICES-6
-  ============================================= -->
-  <section id="services-6" class="bg-03 wide-60 services-section division">
-    <div class="container white-color">
+{% load i18n %}
+{% load wagtailimages_tags %}
 
+<div class="breadcrumb-wrap style-01 bg-main-gradient" id="{{ block_id }}">
+  <div class="container custom-container-01">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-content">
+          <h3 class="title">{{ data_block.title }}</h3>
+          <p class="details">{{ data_block.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb area end here  -->
 
-      <!-- SERVICES TEXT -->
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1 text-center">
-          <div class="services-6-txt">
+<!-- teem area start here  -->
+<section class="our-services-area-wrapper bg-main-white custom-padding-top" id='why'>
+  <div class="our-team-inner">
+    <div class="container custom-container-01">
+      <div class="row column-gap-50">
+        {% for data in data_block.list_items %}
+        {% for _, block in data.items %}
+        {% if block.enable %}
+        <div class="col-md-6 col-lg-4">
+          <div class="single-our-services-item style-01">
+            <div class="icon">
+              {% image block.icon original class="banner-img" alt="Student" %}
+            </div>
 
-            <!-- Title -->
-            <h3 class="h3-md">Get Quality Education with eTreeks</h3>
+            <div class="content">
+              <h4 class="title">
+                <a href="javascript:void(0)" tabindex="-1">{{ block.title }}</a>
+              </h4>
 
-            <!-- Text -->
-            <p class="p-md">Integer congue magna at pretium purus pretium ligula at rutrum luctus risus
-            eros
-            dolor auctor ipsum blandit luctus purus vehicula magna a tempor laoreet
-            </p>
-
-            <!-- Button -->
-            <a href="#" class="btn btn-md btn-rose tra-white-hover">Start Learning Now!</a>
-
+              <p class="paragraph">{{ block.description }}</p>
+            </div>
           </div>
         </div>
-      </div> <!-- END SERVICES TEXT -->
 
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
 
-      <!-- SERVICE BOXES -->
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="row">
-
-            <!-- SERVICE BOX #1 -->
-            <div class="sbox-6 icon-xl">
-              <span class="flaticon-031-select"></span>
-              <h5 class="h5-xs">Trending Courses</h5>
-            </div>
-
-            <!-- SERVICE BOX #2 -->
-            <div class="sbox-6 icon-xl">
-              <span class="flaticon-028-learning-1"></span>
-              <h5 class="h5-xs">Certified Teachers</h5>
-            </div>
-
-            <!-- SERVICE BOX #3 -->
-            <div class="sbox-6 icon-xl">
-              <span class="flaticon-006-diploma"></span>
-              <h5 class="h5-xs">Graduation Certificate</h5>
-            </div>
-
-            <!-- SERVICE BOX #4 -->
-            <div class="sbox-6 icon-xl">
-              <span class="flaticon-013-elearning-5"></span>
-              <h5 class="h5-xs">Online Course Facilities</h5>
-            </div>
-
-            <!-- SERVICE BOX #5 -->
-            <div class="sbox-6 icon-xl">
-              <span class="flaticon-001-book"></span>
-              <h5 class="h5-xs">Free Books & Library</h5>
-            </div>
-
-          </div>
-        </div>
-      </div> <!-- END SERVICE BOXES -->
-
-
-    </div> <!-- End container -->
-  </section> <!-- End SERVICES-6 -->
+      </div>
+    </div>
+</section>

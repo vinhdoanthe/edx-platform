@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+
+<section class="chose-area-wrapper section-bottom-space bg-main-blue section-top-space" id="mission">
+  <div class="chose-area-inner bg-color-01">
+    <div class="bg-image background-image" style="background-image: url({{mission_image}});">
+    </div>
+    <div class="container custom-container-01">
+      <div class="row justify-content-end">
+        <div class="col-lg-6">
+          <div class="img-box">
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content-wrap">
+            <div class="section-title-wrapper">
+              <h4 class="section-title">{{ mission.title }}</h4>
+              <p class="description color-02">{{ mission.description }}</p>
+            </div>
+
+            <div class="icon-box-with-text-wrap">
+              <ul class="ul icon-box-with-text style-02">
+                {% for data in mission.list_items %}
+                {% for _, block in data.items %}
+                {% if block.enable %}
+                <li class="single-icon-box-with-text">
+                  <div class="icon-wrap">
+                    {% image block.icon original class="banner-img" alt="Student" %}
+                  </div>
+                  <div class="content">
+                    <h4 class="title">{{ block.title }}</h4>
+                    <p class="paragraph">{{ block.description }}</p>
+                  </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

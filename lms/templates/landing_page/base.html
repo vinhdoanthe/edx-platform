@@ -4,11 +4,39 @@
 {% load i18n %}
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}{% endblock %}
     {% include "landing_page/include/head.html" %}
     {% block extra-head %}{% endblock %}
   </head>
   <body>
-    {% block body %}{% endblock %}
+    <!-- preloader area start -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="loader">
+            </div>
+        </div>
+    </div>
+    <!-- preloader area end -->
+
+    <!--  search Popup start -->
+    <div class="body-overlay" id="body-overlay"></div>
+    <div class="search-popup" id="search-popup">
+        <form action="index.html" class="search-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search.....">
+            </div>
+            <button class="close-btn border-none"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <!-- Search Popup End -->
+    <main class="page-wrapper">
+      {% block body %}{% endblock %}
+    </main>
+
     {% include 'landing_page/include/footer.html' %}
     {% include 'landing_page/include/script.html' %}
     {% block extra-script %}{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Features Area Start Here
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <section class="features-section margin-top-100" id="">
+    <img src="{% static 'landing_page/img/shapes/graduation.png' %}" class="shape" alt="graduation cap">
+    <div class="container custom-container-01">
+      <div class="row">
+        {% for feature in features.list_items %}
+          {% for _, block in feature.items %}
+          {% if block.active %}
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box-item">
+              <div class="icon">
+                {% image block.icon fill-641x773 class="banner-img" alt="Student" %}
+              </div>
+              <div class="content">
+                <h4 class="title">{{ block.title }}</h4>
+                <p>{{ block.description }}</p>
+              </div>
+              <div class="btn-wrap">
+                <a href="{{ block.link }}" class="more-btn">Learn More <i class="fa-solid fa-angle-right icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Feedback Area End Here
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
