@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load wagtailimages_tags %}
 
-<div class="breadcrumb-wrap style-01 bg-main-gradient" id="{{ block_id }}">
+<div class="breadcrumb-wrap style-01 bg-main-blue {% if bg == 'white'%}bg-main-white{% endif %}" id="{{ block_id }}">
   <div class="container custom-container-01">
     <div class="row">
       <div class="col-lg-12">
