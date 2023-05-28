@@ -4,13 +4,14 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Nav Area Start Here
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
   <div class="nav-area-wrapper-relative bg-main-blue">
     <nav class="navbar navbar-area navbar-expand-lg navigation-style-02">
       <div class="container custom-container custom-container-01">
         <div class="responsive-menu">
           <div class="logo-wrapper">
             <a href="index.html" class="logo">
-              <img src="{% static 'landing_page/img/Logos/logo-black.svg' %}" alt="">
+              {% image banner.image original alt="logo" %}
             </a>
           </div>
           <button class="navbar-toggler navbar-bs-toggler" type="button" data-bs-toggle="collapse"

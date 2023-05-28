@@ -74,75 +74,159 @@ class FooterItem(StructBlock):
 class HomePage(Page):
     active = models.BooleanField(default=True)
 
-    menu = StreamField([
-        ('logo', ImageChooserBlock()),
-        ('key_selling_points', MenuItem()),
-        ('why', MenuItem()),
-        ('mission', MenuItem()),
-        ('proof_points', MenuItem()),
-        ('services', MenuItem()),
-        ('case_studies', MenuItem()),
-        ('testimonials', MenuItem()),
-        ('subscription_form', MenuItem())
-        ], use_json_field=True, blank=True)
+    menu = StreamField(
+            [
+                ('logo', ImageChooserBlock()),
+                ('key_selling_points', MenuItem()),
+                ('why', MenuItem()),
+                ('mission', MenuItem()),
+                ('proof_points', MenuItem()),
+                ('services', MenuItem()),
+                ('case_studies', MenuItem()),
+                ('testimonials', MenuItem()),
+                ('subscription_form', MenuItem())
+                ],
+            block_counts={
+                'logo': {'max_num': 1},
+                'key_selling_points': {'max_num': 1},
+                'why': {'max_num': 1},
+                'mission': {'max_num': 1},
+                'proof_points': {'max_num': 1},
+                'services': {'max_num': 1},
+                'case_studies': {'max_num': 1},
+                'testimonials': {'max_num': 1},
+                'subscription_form': {'max_num': 1}
+            },
+            use_json_field=True,
+            blank=True
+            )
 
-    banner = StreamField([
-        ('title', RichTextBlock()),
-        ('description', TextBlock()),
-        ('image', ImageChooserBlock()),
-        ('button_text', CharBlock(max_length=1000)),
-        ('button_link', URLBlock()),
-        ('enable', BooleanBlock(default=True, required=False))
-        ], use_json_field=True, blank=True)
+    banner = StreamField(
+            [
+                ('title', RichTextBlock()),
+                ('description', TextBlock()),
+                ('image', ImageChooserBlock()),
+                ('button_text', CharBlock(max_length=1000)),
+                ('button_link', URLBlock()),
+                ('enable', BooleanBlock(required=False))
+                ],
+            block_counts={
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                'image': {'max_num': 1},
+                'button_text': {'max_num': 1},
+                'button_link': {'max_num': 1}
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    features = StreamField([
-        ('list_items', ListBlock(FeatureItem())),
-        ('enable', BooleanBlock(default=True, required=False))
-        ], use_json_field=True, blank=True)
+    features = StreamField(
+            [
+                ('list_items', ListBlock(FeatureItem())),
+                ('enable', BooleanBlock(required=False))
+                ],
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    why = StreamField([
-    #    ('image', ImageChooserBlock()),
-        ('title', CharBlock(max_length=1000)),
-        ('description', TextBlock()),
-        ('list_items', ListBlock(WhyItem())),
-        ('enable', BooleanBlock(default=True, required=False))
-        ], use_json_field=True, blank=True)
+    why = StreamField(
+            [
+                ('image', ImageChooserBlock()),
+                ('title', CharBlock(max_length=1000)),
+                ('description', TextBlock()),
+                ('list_items', ListBlock(WhyItem())),
+                ('enable', BooleanBlock(required=False))
+                ],
+            block_counts={
+                'image': {'max_num': 1},
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    mission = StreamField([
-        ('title', CharBlock(max_length=1000)),
-        ('description', TextBlock()),
-        ('image', ImageChooserBlock()),
-        ('list_items', ListBlock(MissionItem())),
-        ('enable', BooleanBlock(default=True, required=False))
-        ], use_json_field=True, blank=True)
+    mission = StreamField(
+            [
+                ('title', CharBlock(max_length=1000)),
+                ('description', TextBlock()),
+                ('image', ImageChooserBlock()),
+                ('list_items', ListBlock(MissionItem())),
+                ('enable', BooleanBlock(required=False))
+                ],
+            block_counts={
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                'image': {'max_num': 1},
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
     proof_points = StreamField([
         ('list_items', ListBlock(ProofPointItem())),
+        ('enable', BooleanBlock(required=False))
         ], use_json_field=True, blank=True)
 
-    services = StreamField([
-        ('image', ImageChooserBlock()),
-        ('title', CharBlock(max_length=1000)),
-        ('description', TextBlock()),
-        ('list_items', ListBlock(WhyItem())),
-        ('enable', BooleanBlock(default=True, required=False))
-        ], use_json_field=True, blank=True)
+    services = StreamField(
+            [
+                ('image', ImageChooserBlock()),
+                ('title', CharBlock(max_length=1000)),
+                ('description', TextBlock()),
+                ('list_items', ListBlock(WhyItem())),
+                ('enable', BooleanBlock(required=False))
+                ],
+            block_counts={
+                'image': {'max_num': 1},
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    case_studies = StreamField([
-        ('title', CharBlock(max_length=1000)),
-        ('list_items', ListBlock(CaseStudyItem())),
-        ], use_json_field=True, blank=True)
+    case_studies = StreamField(
+            [
+                ('title', CharBlock(max_length=1000)),
+                ('list_items', ListBlock(CaseStudyItem())),
+                ('enable', BooleanBlock(required=False))
+                ],
+            block_counts={
+                'title': {'max_num': 1}
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    testimonials = StreamField([
-        ('title', CharBlock(max_length=1000)),
-        ('description', TextBlock()),
-        ('list_items', ListBlock(TestimonialItem())),
-        ], use_json_field=True, blank=True)
+    testimonials = StreamField(
+            [
+                ('title', CharBlock(max_length=1000)),
+                ('description', TextBlock()),
+                ('list_items', ListBlock(TestimonialItem())),
+                ('enable', BooleanBlock(required=False))
+                ], 
+            block_counts={
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
-    subscription_form = StreamField([
-        ('title', CharBlock(max_length=1000)),
-        ('description', TextBlock()),
-        ], use_json_field=True, blank=True)
+    subscription_form = StreamField(
+            [
+                ('title', CharBlock(max_length=1000)),
+                ('description', TextBlock()),
+                ('enable', BooleanBlock(required=False)),
+                ],
+            block_counts={
+                'title': {'max_num': 1},
+                'description': {'max_num': 1},
+                },
+            use_json_field=True,
+            default=[('enable', True)],
+            blank=True)
 
     footer = StreamField([
         ('description', TextBlock()),

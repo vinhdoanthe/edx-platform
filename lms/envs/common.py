@@ -250,7 +250,7 @@ FEATURES = {
 
     # Allows to configure the LMS to provide CORS headers to serve requests from other
     # domains
-    'ENABLE_CORS_HEADERS': False,
+    'ENABLE_CORS_HEADERS': True,
 
     # Can be turned off if course lists need to be hidden. Effects views and templates.
     # .. toggle_name: FEATURES['COURSES_ARE_BROWSABLE']
@@ -3520,7 +3520,7 @@ FEATURES['ENABLE_CREDIT_ELIGIBILITY'] = ENABLE_CREDIT_ELIGIBILITY
 
 if FEATURES.get('ENABLE_CORS_HEADERS'):
     CORS_ALLOW_CREDENTIALS = True
-    CORS_ORIGIN_WHITELIST = ()
+    CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "http://app.local.overhang.io:8000")
     CORS_ORIGIN_ALLOW_ALL = False
     CORS_ALLOW_INSECURE = False
     CORS_ALLOW_HEADERS = corsheaders_default_headers + (
@@ -5293,3 +5293,4 @@ MIDDLEWARE += (
 
 WAGTAIL_SITE_NAME = 'edX'
 WAGTAILADMIN_BASE_URL = 'http://localhost:8000/landing_cms'
+AUTHN_MICROFRONTEND_URL = 'http://localhost:8000/cms'

@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load wagtailimages_tags %}
 
+{% if mission.enable %}
 <section class="chose-area-wrapper section-bottom-space bg-main-blue section-top-space" id="mission">
   <div class="chose-area-inner bg-color-01">
     <div class="bg-image background-image" style="background-image: url({{mission_image}});">
@@ -10,7 +11,7 @@
       <div class="row justify-content-end">
         <div class="col-lg-6">
           <div class="img-box">
-
+            {% image mission.image width-932 height-855  alt="image" %}
           </div>
         </div>
         <div class="col-lg-6">
@@ -27,7 +28,7 @@
                 {% if block.enable %}
                 <li class="single-icon-box-with-text">
                   <div class="icon-wrap">
-                    {% image block.icon original class="banner-img" alt="Student" %}
+                    {% image block.icon width-45 height-45  alt="icon" %}
                   </div>
                   <div class="content">
                     <h4 class="title">{{ block.title }}</h4>
@@ -45,3 +46,4 @@
     </div>
   </div>
 </section>
+{% endif %}

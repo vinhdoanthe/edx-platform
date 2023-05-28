@@ -5,7 +5,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Banner Area Start Here
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  {% if banner %}
+  {% if banner.enable %}
   <section class="banner-area home-01 bg-main-white" id="key_selling_points">
     <div class="container custom-container-01">
       <div class="banner-wrapper">
@@ -13,13 +13,12 @@
           <div class="col-xl-7 col-lg-10">
             <div class="banner-inner">
               <h1 class="title">{{ banner.title|safe }}</h1>
-              {% if banner.description %}
+              <p> banner.description </p>
               <div class="header-btn">
                 <div class="btn-wrap">
                   <a href="{{ banner.button_link }}" class="btn-common flat-btn btn-active">{{ banner.button_text }}</a>
                 </div>
               </div>
-              {% endif %}
             </div>
           </div>
           <div class="col-xl-5">
@@ -29,7 +28,7 @@
               <img src="{% static 'landing_page/img/shapes/Vector-15.png' %}" class="element-03" alt="vector">
               <img src="{% static 'landing_page/img/header/plane.png' %}" class="element-04" alt="plane">
               <img src="{% static 'landing_page/img/icon/location.png' %}" class="element-05" alt="location">
-              {% image banner.image fill-641x773 class="banner-img" alt="Student" %}
+              {% image banner.image width-641 height-773 alt="Student" %}
             </div>
           </div>
         </div>
