@@ -1,55 +1,26 @@
 {% load static %}      
 {% load humanize %}    
 {% load i18n %}
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="author" content="Jthemes" />
-<meta name="description" content="eTreeks - Education & Courses Landing Page Template" />
-<meta name="keywords"
-      content="Responsive, HTML5 Template, Jthemes, Courses, Education, Learning, Online Education, Study">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- SITE TITLE -->
-{% block title %}
-<title>Open-EdX</title>
-{% endblock %}
-
-<!-- FAVICON AND TOUCH ICONS  -->
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="icon" href="images/apple-touch-icon.png" type="image/x-icon">
-
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900&display=swap" rel="stylesheet">
-
-<!-- BOOTSTRAP CSS -->
-<link href="{% static 'landing_page/css/bootstrap.min.css' %}" rel="stylesheet">
-
-<!-- FONT ICONS -->
-<link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
-<link href="{% static 'landing_page/css/flaticon.css' %}" rel="stylesheet">
 
 <!-- PLUGINS STYLESHEET -->
-<link href="{% static 'landing_page/css/menu.css' %}" rel="stylesheet">
-<link href="{% static 'landing_page/css/menu.min.css' %}" rel="stylesheet" type="text/css">    
-<link id="effect" href="{% static 'landing_page/css/dropdown-effects/fade-down.css' %}" media="all" rel="stylesheet">
-<link href="{% static 'landing_page/css/magnific-popup.css' %}" rel="stylesheet">
-<link href="{% static 'landing_page/css/flexslider.css' %}" rel="stylesheet">
-<link href="{% static 'landing_page/css/owl.carousel.min.css' %}" rel="stylesheet">
-<link href="{% static 'landing_page/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<link rel="icon" href="{% static 'landing_page/img/favicon.png' %}" sizes="20x20" type="image/png">
+<!-- animate -->
+<link rel="stylesheet" href="{% static 'landing_page/css/animate.css' %}">
+<!-- bootstrap -->
+<link rel="stylesheet" href="{% static 'landing_page/css/bootstrap.min.css' %}">
+<!-- magnific popup -->
+<link rel="stylesheet" href="{% static 'landing_page/css/magnific-popup.css' %}">
+<!-- Nice Select -->
+<link rel="stylesheet" href="{% static 'landing_page/css/nice-select.css' %}">
+<!-- Odomiters css -->
+<link rel="stylesheet" href="{% static 'landing_page/css/odometer.css' %}">
+<!-- fontawesome -->
+<link rel="stylesheet" href="{% static 'landing_page/css/font-awesome.min.css' %}">
+<!-- Slick Slider -->
+<link rel="stylesheet" href="{% static 'landing_page/css/slick.css' %}">
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{% static 'landing_page/css/style.css' %}">
+<!-- Responsive Css -->
+<link rel="stylesheet" href="{% static 'landing_page/css/custom.css' %}" />
+<link rel="stylesheet" href="{% static 'landing_page/css/responsive.css' %}" />
 
-<!-- ON SCROLL ANIMATION -->
-<link href="{% static 'landing_page/css/animate.css' %}" rel="stylesheet">
-
-<!-- TEMPLATE CSS -->
-<link href="{% static 'landing_page/css/style.css' %}" rel="stylesheet">
-
-<!-- RESPONSIVE CSS -->
-<link href="{% static 'landing_page/css/responsive.css' %}" rel="stylesheet">
-<link href="{% static 'landing_page/css/animate.min.css' %}" rel="stylesheet" type="text/css">    
-<link href="{% static 'landing_page/css/style.min.css' %}" rel="stylesheet" type="text/css">    

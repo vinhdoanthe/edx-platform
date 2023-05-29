@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Nav Area Start Here
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <div class="nav-area-wrapper-relative bg-main-blue">
+    <nav class="navbar navbar-area navbar-expand-lg navigation-style-02">
+      <div class="container custom-container custom-container-01">
+        <div class="responsive-menu">
+          <div class="logo-wrapper">
+            <a href="/" class="logo">
+              {% image banner.image original alt="logo" class="uw-menu-img" %}
+            </a>
+          </div>
+          <button class="navbar-toggler navbar-bs-toggler" type="button" data-bs-toggle="collapse"
+                                                                         data-bs-target="#themeim_main_menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="themeim_main_menu">
+          <ul class="navbar-nav">
+            {% for key, value in menu.items %}
+            {% if value.enable %}
+            <li><a href="#{{ key }}">{{ value.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <div class="nav-right-content">
+            <div class="btn-wrap">
+              <a href="{{settings.AUTHN_MICROFRONTEND_URL}}/login{{ login_params }}" class="btn-common nav-btn">{% translate "Login" %}</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+  </div>
