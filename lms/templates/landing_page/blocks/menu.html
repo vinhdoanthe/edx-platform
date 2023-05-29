@@ -10,8 +10,8 @@
       <div class="container custom-container custom-container-01">
         <div class="responsive-menu">
           <div class="logo-wrapper">
-            <a href="index.html" class="logo">
-              {% image banner.image original alt="logo" %}
+            <a href="/" class="logo">
+              {% image banner.image original alt="logo" class="uw-menu-img" %}
             </a>
           </div>
           <button class="navbar-toggler navbar-bs-toggler" type="button" data-bs-toggle="collapse"
@@ -21,12 +21,10 @@
         </div>
         <div class="collapse navbar-collapse" id="themeim_main_menu">
           <ul class="navbar-nav">
-            {% for data in menu %}
-            {% for key, value in data.items %}
+            {% for key, value in menu.items %}
             {% if value.enable %}
             <li><a href="#{{ key }}">{{ value.title }}</a></li>
             {% endif %}
-            {% endfor %}
             {% endfor %}
           </ul>
           <div class="nav-right-content">

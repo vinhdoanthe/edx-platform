@@ -5,7 +5,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Banner Area Start Here
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  {% if banner.enable %}
+  {% if banner.enable and menu.key_selling_points.enable %}
   <section class="banner-area home-01 bg-main-white" id="key_selling_points">
     <div class="container custom-container-01">
       <div class="banner-wrapper">
@@ -28,7 +28,7 @@
               <img src="{% static 'landing_page/img/shapes/Vector-15.png' %}" class="element-03" alt="vector">
               <img src="{% static 'landing_page/img/header/plane.png' %}" class="element-04" alt="plane">
               <img src="{% static 'landing_page/img/icon/location.png' %}" class="element-05" alt="location">
-              {% image banner.image width-641 height-773 alt="Student" %}
+              {% image banner.image width-641 height-773 alt="banner" class="uw-banner-img" %}
             </div>
           </div>
         </div>

@@ -2,8 +2,8 @@
 {% load i18n %}
 {% load wagtailimages_tags %}
 
-{% if testimonials.enable %}
-<section class="testimonial-area-wrapper section-top-space bg-main-white" id="testimonials">
+{% if testimonials.enable and menu.testimonials.enable %}
+<section class="testimonial-area-wrapper section-top-space bg-main-white uw-pb-100" id="testimonials">
   <div class="container custom-container-01">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -36,7 +36,7 @@
               <div class="client-and-quote">
                 <div class="client-details">
                   <div class="thumb">
-                    {% image block.user_avatar original class="banner-img" alt="Student" %}
+                    {% image block.user_avatar original class="banner-img" alt="testimonial" %}
                   </div>
                   <div class="content">
                     <p class="client-name">{{ block_username }}</p>

@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load wagtailimages_tags %}
 
-{% if proof_points.enable %}
+{% if proof_points.enable and menu.proof_points.enable %}
 <div class="bg-main-blue" id="proof_points">
   <div class="counter-section-area bg-color-x bg-main-blue">
     <div class="container custom-container-01">
@@ -14,7 +14,7 @@
             {% if block.enable %}
             <div class="single-counterup">
               <div class="image-wrap">
-                {% image block.icon original class="banner-img" alt="Student" %}
+                {% image block.icon original class="banner-img" alt="proof point" %}
               </div>
               <div class="content-wrap">
                 <div class="odo-area">

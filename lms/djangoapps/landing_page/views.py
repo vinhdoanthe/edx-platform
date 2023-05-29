@@ -40,23 +40,20 @@ def index(request):
     testimonials = get_stream_field_data(home, 'testimonials')
     subscription_form = get_stream_field_data(home, 'subscription_form')
     footer = get_stream_field_data(home, 'footer')
-    # mission_image = generate_image_url(mission[0]['image'].id, 'fill-1920x1080')
-    mission_image = ''
 
     context.update({
         'homepage': home,
         'menu': menu,
-        'banner': list_to_dict(banner),
-        'features': list_to_dict(features),
-        'why': list_to_dict(why),
-        'mission': list_to_dict(mission),
-        'proof_points': list_to_dict(proof_points),
-        'services': list_to_dict(services),
-        'case_studies': list_to_dict(case_studies),
-        'testimonials': list_to_dict(testimonials),
-        'subscription_form': list_to_dict(subscription_form),
-        'footer': list_to_dict(footer),
-        'mission_image': mission_image,
+        'banner': banner,
+        'features': features,
+        'why': why,
+        'mission': mission,
+        'proof_points': proof_points,
+        'services': services,
+        'case_studies': case_studies,
+        'testimonials': testimonials,
+        'subscription_form': subscription_form,
+        'footer': footer,
         'missing_home': False
         })
 

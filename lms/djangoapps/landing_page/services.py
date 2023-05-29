@@ -11,8 +11,9 @@ def get_stream_field_data(obj, field_name):
     raw_data = field.get_prep_value(getattr(obj, field_name))
     data = json.loads(raw_data)
     replace_image_with_object(data)
+    result = handle_list_data(data)
 
-    return handle_list_data(data)
+    return list_to_dict(result)
 
 
 def replace_image_with_object(data):

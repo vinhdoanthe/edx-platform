@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load wagtailimages_tags %}
 
-{% if data.enable %}
+{% if data.enable and menu.case_studies.enable %}
 <section class="feedback-section margin-top-110 bg-main-blue" id="case_studies">
   <div class="container custom-container-01">
     <div class="row justify-content-center">
@@ -30,7 +30,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="image-box-item">
             <div class="thumbnail">
-              {% image block.thumbnail width-329 height-429 alt="Student" %}
+              {% image block.thumbnail width-329 height-429 alt="case study" class="uw-case-study-img" %}
               <a class="video-play-btn mfp-iframe" href="{{ block.video }}">
                 <svg width="14" height="25" viewBox="0 0 14 25" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">

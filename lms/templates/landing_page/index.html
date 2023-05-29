@@ -10,10 +10,10 @@
   {% include 'landing_page/blocks/menu.html' %}
       {% include 'landing_page/blocks/banner.html' %}
       {% include 'landing_page/blocks/highlight_features.html' %}
-      {% include 'landing_page/blocks/services.html' with data_block=why block_id='why' bg='blue'%}
+      {% include 'landing_page/blocks/services.html' with data_block=why block_id='why' bg='blue' block_enable=why.enable %}
       {% include 'landing_page/blocks/about.html' %}
       {% include 'landing_page/blocks/proof_point.html' %}
-      {% include 'landing_page/blocks/services.html' with data_block=services block_id='services' bg='blue' %}
+      {% include 'landing_page/blocks/services.html' with data_block=services block_id='services' bg='blue' block_enable=services.enable %}
       {% include 'landing_page/blocks/case_studies.html' %}
       {% include 'landing_page/blocks/testimonial.html' %}
 {% endblock %}
