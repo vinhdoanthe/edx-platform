@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.urls import reverse
+
 from openedx.core.djangoapps.user_authn.toggles import (
         should_redirect_to_authn_microfrontend
         )
@@ -41,7 +43,8 @@ def index(request):
             "testimonials": 7,
             "subscription_form": 8,
             }
-    menu.update({'courses': {'enable': True, 'title': 'Courses', 'url': '/courses'}})
+    course_url = request.build_absolute_uri(reverse('courses'))
+    menu.update({'courses': {'enable': True, 'title': 'Courses', 'url': course_url}})
 
     for k, v in menu.items():
         if k == 'logo':
