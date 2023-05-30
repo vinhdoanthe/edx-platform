@@ -23,7 +23,11 @@
           <ul class="navbar-nav">
             {% for key, value in menu.items %}
             {% if value.enable %}
+            {% if key == 'courses' %}
+            <li><a href="#{{ value.url }}">{{ value.title }}</a></li>
+            {% else %}
             <li><a href="#{{ key }}">{{ value.title }}</a></li>
+            {% endif %}
             {% endif %}
             {% endfor %}
           </ul>
