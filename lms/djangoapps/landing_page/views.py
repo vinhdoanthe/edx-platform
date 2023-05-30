@@ -30,6 +30,29 @@ def index(request):
         return render(request, 'landing_page/index.html', context=context)
 
     menu = get_stream_field_data(home, 'menu')
+    menu_order = {
+            "key_selling_points": 0,
+            "why": 1,
+            "mission": 2,
+            "proof_points": 3,
+            "services": 4,
+            "courses": 5,
+            "case_studies": 6,
+            "testimonials": 7,
+            "subscription_form": 8,
+            }
+    menu.update({'courses': {'enable': True, 'title': 'Courses', 'url': '/courses'}})
+
+    for k, v in menu.items():
+        if k == 'logo':
+            continue
+        v['order'] = menu_order[k]
+
+    logo = menu['logo']
+    del menu['logo']
+    menu_data = dict(sorted(menu.items(), key=lambda item: item[1]['order']))
+    menu_data.update({'logo': logo})
+
     banner = get_stream_field_data(home, 'banner')
     features = get_stream_field_data(home, 'features')
     why = get_stream_field_data(home, 'why')
@@ -43,7 +66,7 @@ def index(request):
 
     context.update({
         'homepage': home,
-        'menu': menu,
+        'menu': menu_data,
         'banner': banner,
         'features': features,
         'why': why,
