@@ -175,6 +175,19 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
     <link rel="stylesheet" href="${css}" type="text/css">
   % endfor
   % endif
+
+  <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-9" rel="stylesheet">
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.5556;
+      color: #454545;
+    }
+  </style>
 </head>
 
 <body class="${static.dir_rtl()} <%block name='bodyclass'/> lang_${LANGUAGE_CODE}">
