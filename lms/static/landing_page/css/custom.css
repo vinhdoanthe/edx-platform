@@ -119,3 +119,9 @@ body {
 .image-box-item .thumbnail::before {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0274be 83.41%, #021868 100%);
 }
+
+.c-menu__item {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 70px;
+}
