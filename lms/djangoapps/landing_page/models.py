@@ -103,9 +103,10 @@ class HomePage(Page):
 
     banner = StreamField(
             [
-                ('title', RichTextBlock()),
+                ('title', RichTextBlock(features=['bold', 'italic', 'link', 'h1', 'h2', 'link', 'embed'])),
                 ('description', TextBlock()),
                 ('image', ImageChooserBlock()),
+                ('background_image', ImageChooserBlock()),
                 ('button_text', CharBlock(max_length=1000)),
                 ('button_link', URLBlock()),
                 ('enable', BooleanBlock(required=False))
