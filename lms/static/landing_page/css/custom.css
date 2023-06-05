@@ -165,3 +165,8 @@ body {
   color: #021868 !important;
 }
 
+@media only screen and (min-width: 600px) {
+  #banner .banner-inner {
+    padding-right: 50px;
+  }
+}
