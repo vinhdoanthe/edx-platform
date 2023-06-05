@@ -7,6 +7,21 @@
   --animate-delay: 0.3s;
 }
 
+#banner * {
+  color: white;
+}
+
+#banner h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.407;
+  margin-bottom: 27px;
+}
+
+.c-root__color-one {
+  color: var(--main-color-one) !important;
+}
+
 .chose-area-inner.bg-color-01 {
   background-color: #0274be;
 }
@@ -125,3 +140,28 @@ body {
   font-weight: 500;
   line-height: 70px;
 }
+
+.c-banner__background:after {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+
+.c-banner__background {
+  background: #021868;
+}
+
+.c-banner__link {
+  background-color: white !important;
+  color: #021868 !important;
+}
+

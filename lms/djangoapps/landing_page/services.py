@@ -23,7 +23,7 @@ def replace_image_with_object(data):
     if isinstance(data, dict):
         image_id = 0
         key = 'value'
-        if data.get('type') in ['image', 'icon', 'thumbnail', 'logo', 'user_avatar']:
+        if data.get('type') in ['image', 'icon', 'thumbnail', 'logo', 'user_avatar', 'background_image']:
             image_id = data['value']
 
         if data.get('logo') and image_id == 0:
@@ -41,6 +41,10 @@ def replace_image_with_object(data):
         if data.get('user_avatar') and image_id == 0:
             key = 'user_avatar'
             image_id = data['user_avatar']
+
+        if data.get('background_image') and image_id == 0:
+            key = 'background_image'
+            image_id = data['background_image']
 
         if isinstance(image_id, int) and image_id > 0:
             try:
