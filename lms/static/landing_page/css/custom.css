@@ -170,3 +170,24 @@ body {
     padding-right: 50px;
   }
 }
+
+#key_selling_points {}
+
+#key_selling_points .icon-box-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#key_selling_points .icon-box-item .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+#key_selling_points .col-lg-4.col-md-6 {
+    display: flex;
+}
+
+.content h4.title {
+    /* flex: 1 1 auto; */
+}

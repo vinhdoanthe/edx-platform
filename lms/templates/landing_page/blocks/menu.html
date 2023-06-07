@@ -24,7 +24,7 @@
             {% for key, value in menu.items %}
             {% if value.enable %}
             {% if key == 'courses' %}
-            <li><a href="{{ value.url }}" target="_blank">{{ value.title }}</a></li>
+            <li><a href="{{ value.url }}" class='c-menu__item' target="_blank">{{ value.title }}</a></li>
             {% else %}
             <li><a href="#{{ key }}" class='c-menu__item'>{{ value.title }}</a></li>
             {% endif %}
