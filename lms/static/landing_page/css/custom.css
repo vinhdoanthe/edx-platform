@@ -1,0 +1,193 @@
+:root {
+  --main-color-one: #021868;
+  --heading-color: #021868;
+  --paragraph-color: #6B6B6B;
+  --heading-font: "Sora", sans-serif;
+  --body-font: "Poppins", sans-serif;
+  --animate-delay: 0.3s;
+}
+
+#banner * {
+  color: white;
+}
+
+#banner h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.407;
+  margin-bottom: 27px;
+}
+
+.c-root__color-one {
+  color: var(--main-color-one) !important;
+}
+
+.chose-area-inner.bg-color-01 {
+  background-color: #0274be;
+}
+
+.chose-area-wrapper.section-bottom-space .section-title {
+  color: white;
+}
+
+.chose-area-wrapper.section-bottom-space .description {
+  color: white;
+}
+
+.chose-area-wrapper.section-bottom-space h4 {
+  color: white;
+}
+
+.chose-area-wrapper.section-bottom-space .paragraph {
+  color: white;
+}
+
+.single-course-item ::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(125deg, #021868 0%, #0274be 100%);
+  border-radius: 10px;
+}
+
+.bg-main-blue {
+  background: #e6eeff;
+}
+
+.bg-main-white {
+  background: #fff;
+}
+
+.custom-padding-top {
+  padding-top: 55px;
+}
+
+.uw-pb-100 {
+  padding-bottom: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(125deg, #021868 0%, #0274be 100%);
+  border-radius: 10px;
+}
+
+.uw-menu-img {
+  max-width: 300px;
+  max-height: 40px;
+}
+
+.uw-mission-img {
+  width: 932px;
+  height: 855px;
+}
+
+.uw-banner-img {
+  width: 641px;
+  height: 773px;
+}
+
+.uw-case-study-img {
+  width: 329px;
+  height: 429px;
+}
+
+.uw-feature-icon {
+  width: 67px;
+  height: 71px;
+}
+
+.slick-track
+{
+  display: flex !important;
+}
+
+.slick-slide
+{
+  height: inherit !important;
+}
+
+.testimonial-single-items {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-single-items .content {
+  flex-grow: 1;
+}
+
+#mission img.icon {
+  width: 45px;
+  height: 45px;
+}
+
+#proof_points .counter-section-area {
+  padding: 20px 0px 70px;
+}
+
+body {    
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";    
+  font-size: 1.125rem;    
+  font-weight: 400;    
+  line-height: 1.5556;    
+  color: #454545;    
+  background-color: #FFFFFF;    
+} 
+
+.image-box-item .thumbnail::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0274be 83.41%, #021868 100%);
+}
+
+.c-menu__item {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 70px;
+}
+
+.c-banner__background:after {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+
+.c-banner__background {
+  background: #021868;
+}
+
+.c-banner__link {
+  background-color: white !important;
+  color: #021868 !important;
+}
+
+@media only screen and (min-width: 600px) {
+  #banner .banner-inner {
+    padding-right: 50px;
+  }
+}
+
+#key_selling_points {}
+
+#key_selling_points .icon-box-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#key_selling_points .icon-box-item .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+#key_selling_points .col-lg-4.col-md-6 {
+    display: flex;
+}
+
+.content h4.title {
+    /* flex: 1 1 auto; */
+}

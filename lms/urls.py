@@ -1049,3 +1049,7 @@ urlpatterns += [
 urlpatterns += [
     path('api/mfe_config/v1', include(('lms.djangoapps.mfe_config_api.urls', 'lms.djangoapps.mfe_config_api'), namespace='mfe_config_api'))
 ]
+
+urlpatterns += [
+    path('', include('lms.djangoapps.landing_page.urls')), # Landing Page URLs
+]

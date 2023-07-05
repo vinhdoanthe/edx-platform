@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Banner Area Start Here
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  {% if banner.enable and menu.key_selling_points.enable %}
+  <section class="banner-area home-01 c-banner__background" id="banner">
+    <div class="container custom-container-01">
+      <div class="banner-wrapper">
+        <div class="row">
+          <div class="col-xl-7 col-lg-10">
+            <div class="banner-inner">
+              <h1 class="title text-white">
+                {{ banner.title|richtext }}
+              </h1>
+              <p class="text-white">{{ banner.description }}</p>
+              <div class="header-btn">
+                <div class="btn-wrap">
+                  <a href="{{ banner.button_link }}" class="btn-common flat-btn btn-active c-banner__link">{{ banner.button_text }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5">
+            <div class="thumbnail">
+              {% image banner.image width-641 height-773 alt="banner" class="banner-img uw-banner-img" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% if banner.background_image %}
+  {% image banner.background_image original as background_image %}
+  <style>
+    .c-banner__background:after {
+      background-image: url('{{ background_image.url }}');
+    }
+  </style>
+  {% endif %}
+  {% endif %}
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Banner Area End Here
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

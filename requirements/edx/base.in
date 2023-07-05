@@ -187,3 +187,6 @@ xblock-poll                         # Xblock for polling users
 xblock-drag-and-drop-v2             # Drag and Drop XBlock
 xblock-google-drive                 # XBlock for google docs and calendar
 openedx-django-require
+enmerkar-underscore                 # Implements a underscore extractor for django-babel.
+xblock-drag-and-drop-v2             # Drag and Drop XBlock
+wagtail                             # CMS for Django applications

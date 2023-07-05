@@ -67,6 +67,15 @@ from openedx.core.lib.derived import derived, derived_collection_entry
 from openedx.core.release import doc_version
 from lms.djangoapps.lms_xblock.mixin import LmsBlockMixin
 
+
+def get_env_setting(setting):
+    """ Get the environment setting or return exception """
+    try:
+        return os.environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)  # lint-amnesty, pylint: disable=raise-missing-from
+
 ################################### FEATURES ###################################
 # .. setting_name: PLATFORM_NAME
 # .. setting_default: Your Platform Name Here
@@ -241,7 +250,7 @@ FEATURES = {
 
     # Allows to configure the LMS to provide CORS headers to serve requests from other
     # domains
-    'ENABLE_CORS_HEADERS': False,
+    'ENABLE_CORS_HEADERS': True,
 
     # Can be turned off if course lists need to be hidden. Effects views and templates.
     # .. toggle_name: FEATURES['COURSES_ARE_BROWSABLE']
@@ -3530,7 +3539,7 @@ FEATURES['ENABLE_CREDIT_ELIGIBILITY'] = ENABLE_CREDIT_ELIGIBILITY
 
 if FEATURES.get('ENABLE_CORS_HEADERS'):
     CORS_ALLOW_CREDENTIALS = True
-    CORS_ORIGIN_WHITELIST = ()
+    CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "http://app.local.overhang.io:8000")
     CORS_ORIGIN_ALLOW_ALL = False
     CORS_ALLOW_INSECURE = False
     CORS_ALLOW_HEADERS = corsheaders_default_headers + (
@@ -4463,7 +4472,9 @@ SITE_ID = 1
 # .. setting_default: []
 # .. setting_description: A list of directories containing themes folders,
 #   each entry should be a full path to the directory containing the theme folder.
-COMPREHENSIVE_THEME_DIRS = []
+COMPREHENSIVE_THEME_DIRS = [
+        '/edx-platform/themes',
+        ]
 
 # .. setting_name: COMPREHENSIVE_THEME_LOCALE_PATHS
 # .. setting_default: []
@@ -4494,7 +4505,7 @@ DEFAULT_SITE_THEME = None
 #   defined by DEFAULT_SITE_THEME.
 # .. toggle_use_cases: open_edx
 # .. toggle_creation_date: 2016-06-30
-ENABLE_COMPREHENSIVE_THEMING = False
+ENABLE_COMPREHENSIVE_THEMING = True
 
 # .. setting_name: CUSTOM_RESOURCE_TEMPLATES_DIRECTORY
 # .. setting_default: None
@@ -5302,3 +5313,30 @@ ENTERPRISE_PLOTLY_SECRET = "I am a secret"
 ENTERPRISE_MANUAL_REPORTING_CUSTOMER_UUIDS = []
 
 AVAILABLE_DISCUSSION_TOURS = []
+INSTALLED_APPS += (
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.locales',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
+
+    'lms.djangoapps.landing_page',
+)
+
+MIDDLEWARE += (
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+)
+
+WAGTAIL_SITE_NAME = 'edX'
+WAGTAILADMIN_BASE_URL = 'http://localhost:8000/landing_cms'
+AUTHN_MICROFRONTEND_URL = 'http://localhost:8000/cms'

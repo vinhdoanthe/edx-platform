@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+
+{% if proof_points.enable and menu.proof_points.enable %}
+<div class="bg-main-blue" id="proof_points">
+  <div class="counter-section-area bg-color-x bg-main-blue">
+    <div class="container custom-container-01">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="counter-section-inner style-01">
+            {% for data in proof_points.list_items %}
+            {% for _, block in data.items %}
+            {% if block.enable %}
+            <div class="single-counterup">
+              <div class="image-wrap">
+                {% image block.icon original class="banner-img" alt="proof point" %}
+              </div>
+              <div class="content-wrap">
+                <div class="odo-area">
+                  <h3 class="odometer odo-title .c-root__color-one" data-odometer-final="{{ block.number }}">0</h3>
+                </div>
+                <div class="content">
+                  <h6 class="subtitle">{{ block.description }}</h6>
+                </div>
+              </div>
+            </div>
+
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

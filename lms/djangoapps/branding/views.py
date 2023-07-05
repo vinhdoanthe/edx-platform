@@ -17,6 +17,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 import lms.djangoapps.branding.api as branding_api
 import lms.djangoapps.courseware.views.views as courseware_views
+import lms.djangoapps.landing_page.views as landing_page_views
 from common.djangoapps.edxmako.shortcuts import marketing_link, render_to_response
 from common.djangoapps.student import views as student_views
 from common.djangoapps.util.cache import cache_if_anonymous
@@ -44,6 +45,8 @@ def index(request):
                 settings.FEATURES.get('ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER', True)):
             return redirect('dashboard')
 
+
+    print("Test code go here")
     enable_mktg_site = configuration_helpers.get_value(
         'ENABLE_MKTG_SITE',
         settings.FEATURES.get('ENABLE_MKTG_SITE', False)
@@ -67,7 +70,8 @@ def index(request):
     #  marketing and edge are enabled
 
     try:
-        return student_views.index(request, user=request.user)
+        return landing_page_views.index(request)
+        # return student_views.index(request, user=request.user)
     except NoReverseMatch:
         log.error(
             f'https is not a registered namespace Request from {domain}',

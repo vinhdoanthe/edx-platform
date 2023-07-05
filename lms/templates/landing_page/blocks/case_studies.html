@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+{% load wagtailimages_tags %}
+
+{% if case_studies.enable and menu.case_studies.enable %}
+<section class="feedback-section margin-top-110 custom-padding-top bg-main-white" id="case_studies">
+  <div class="container custom-container-01">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="theme-section-title desktop-center text-center">
+          <h4 class="title">{{ case_studies.title }}
+            <svg class="title-shape" width="355" height="15" viewBox="0 0 355 15" fill="none"
+                                                                                  xmlns="http://www.w3.org/2000/svg">
+              <path class="path"
+                    d="M351.66 12.6362C187.865 -6.32755 49.6478 6.37132 3.41142 12.6362"
+                    stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+              <path class="path" d="M351.66 13C187.865 -5.96378 49.6478 6.73509 3.41142 13"
+                                 stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+              <path class="path" d="M2.5 5.5C168.5 2.0001 280.5 -1.49994 352.5 8.49985"
+                                 stroke="#FFC44E" stroke-width="3" stroke-linecap="square" />
+            </svg>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        {% for data in case_studies.list_items %}
+        {% for _, block in data.items %}
+        {% if block.enable %}
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="image-box-item">
+            <div class="thumbnail">
+              {% image block.thumbnail width-329 height-429 alt="case study" class="uw-case-study-img" %}
+              <a class="video-play-btn mfp-iframe" href="{{ block.video }}">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.124 12.6362L0.364909 24.7606L0.36491 0.511875L13.124 12.6362Z"
+                        fill="white" />
+                </svg>
+              </a>
+              <div class="content">
+                <h6 class="title">{{ block.title }}</h6>
+                <p>{{ block.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
